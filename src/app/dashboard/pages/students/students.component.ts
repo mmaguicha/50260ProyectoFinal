@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Student } from './models/student';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentModalDialogComponent } from './components/student-modal-dialog/student-modal-dialog.component';
+import { DeleteStudentComponent } from './components/delete-student/delete-student.component';
 
 @Component({
   selector: 'app-students',
@@ -94,9 +95,17 @@ export class StudentsComponent {
   }
   
   onDeleteStudent(studentId: number): void {
-    if (confirm('Esta seguro?')) {
-      this.students = this.students.filter((u) => u.id !== studentId);
-    }
+    // if (confirm('Esta seguro que desea eliminar al estudiante?')) {
+    //   this.students = this.students.filter((u) => u.id !== studentId);
+    // }
+
+    const dialogRef = this.matDialog.open(DeleteStudentComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.students = this.students.filter((u) => u.id !== studentId);
+      }
+    });
   }
 
 }

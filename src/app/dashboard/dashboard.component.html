@@ -1,0 +1,27 @@
+<!-- CONTENEDOR -->
+<mat-drawer-container class="dashboard-container" autosize>
+    <!-- SIDEBAR -->
+    <mat-drawer
+      style="width: 25vh"
+      [opened]="showSidebar"
+      #drawer
+      class=""
+      mode="side"      
+    >
+      <app-sidebar></app-sidebar>
+    </mat-drawer>
+    <!-- SIDEBAR -->
+  
+    <!-- CONTENIDO -->
+    <div class="">
+      <!-- TOOLBAR -->
+      <app-toolbar (toggleSidebar)="showSidebar = !showSidebar"></app-toolbar>
+      <!-- TOOLBAR -->
+      <main style="padding: 1rem">
+        <h1>Alumnos</h1>
+        <app-students></app-students>
+      </main>
+    </div>
+    <!-- CONTENIDO -->
+    <app-footer></app-footer>
+  </mat-drawer-container>  

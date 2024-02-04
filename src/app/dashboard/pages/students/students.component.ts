@@ -3,6 +3,8 @@ import { Student } from './models/student';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentModalDialogComponent } from './components/student-modal-dialog/student-modal-dialog.component';
 import { DeleteStudentComponent } from './components/delete-student/delete-student.component';
+import { StudentsService } from '../../../core/services/students.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-students',
@@ -11,70 +13,33 @@ import { DeleteStudentComponent } from './components/delete-student/delete-stude
 })
 export class StudentsComponent {
 
-  students: Student[] = [
-    {
-      id: 1,
-      firstName: 'Juan',
-      lastName: 'Gomez',
-      email: 'juan.gomez@mail.com',
-    },
-    {
-      id: 2,
-      firstName: 'Maria',
-      lastName: 'Rodriguez',
-      email: 'maria.rodriguez@mail.com',
-    },
-    {
-      id: 3,
-      firstName: 'Lucas',
-      lastName: 'Lopez',
-      email: 'lucas.lopez@mail.com',
-    },
-    {
-      id: 4,
-      firstName: 'Ana',
-      lastName: 'Fernandez',
-      email: 'ana.fernandez@mail.com',
-    },
-    {
-      id: 5,
-      firstName: 'Diego',
-      lastName: 'Diaz',
-      email: 'diego.diaz@mail.com',
-    }
-  ];
+  students : Student[] = [];
 
-  displayedColumns = ['id', 'fullname', 'email', 'actions'];
+  displayedColumns = ['id', 'fullname', 'email', 'document', 'birthdate', 'actions'];
   
-  constructor(private matDialog: MatDialog) {}
+  constructor(private matDialog: MatDialog, private studentsService: StudentsService, private route: ActivatedRoute) {
+    console.log(this.route.snapshot.queryParams); 
+    
+    this.studentsService.getStudents().subscribe({
+      next: (students) => {
+        this.students = students;
+      },
+    });
+  }
 
   openStudentsDialog(): void {
     this.matDialog.open(StudentModalDialogComponent)
       .afterClosed()
-      .subscribe((result) => {
-        if (result) {
-          this.addStudent(result);
-        }
-      });      
-  }
-
-  private addStudent(newStudent: Student): void {
-    this.students = [
-      ...this.students,
-      {
-        ...newStudent,
-        id: this.getNextUniqueId(), //this.students.length + 1,
-      },
-    ];
-  }
-
-  private getNextUniqueId(): number {
-    // Encontramos el máximo ID actual
-    const maxId = this.students.length > 0 ? Math.max(...this.students.map(e => e.id)) : 0;
-    
-    // Incrementamos el máximo ID para obtener un nuevo ID único
-    return maxId + 1;
-  }
+      .subscribe({ //me suscribo a la data enviada del Dialog Component
+        next: (result) => {
+          if (result) {
+            this.studentsService.addStudent(result).subscribe({
+              next: (students) => (this.students = students),
+            });
+          }
+        },
+      });    
+  }  
 
   onEditStudent(student: Student): void {
     const dialogRef = this.matDialog.open(StudentModalDialogComponent, {
@@ -83,17 +48,15 @@ export class StudentsComponent {
 
     dialogRef.afterClosed().subscribe((updatedStudent) => {
       if (updatedStudent) {
-        this.updateStudent(student.id, updatedStudent);
+        this.studentsService
+              .updateStudentById(student.id, updatedStudent)
+              .subscribe({
+                next: (students) => (this.students = students),
+              });
       }
     });
   }
-
-  private updateStudent(studentId: number, updatedStudent: Student): void {
-    this.students = this.students.map((student) =>
-      student.id === studentId ? { ...student, ...updatedStudent } : student
-    );
-  }
-  
+ 
   onDeleteStudent(studentId: number): void {
     // if (confirm('Esta seguro que desea eliminar al estudiante?')) {
     //   this.students = this.students.filter((u) => u.id !== studentId);
@@ -103,9 +66,17 @@ export class StudentsComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.students = this.students.filter((u) => u.id !== studentId);
-      }
+        this.studentsService.deleteStudentById(studentId).subscribe({
+          next: (students) => {
+            this.students = students;
+          },
+        });      }
     });
+  }  
+
+  formatBirthDate(date: Date): string {
+    const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
   }
 
 }

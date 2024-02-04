@@ -1,6 +1,8 @@
+<h1>Alumnos</h1>
+
 <button (click)="openStudentsDialog()" mat-flat-button color="primary">
     <mat-icon>add</mat-icon>
-    Dar de alta alumno
+    Dar de alta un alumno
 </button>
 
 <!-- <app-student-table>
@@ -37,12 +39,32 @@
         {{ student.email }}
       </td>
     </ng-container>
+
+     <!-- Document Column -->
+     <ng-container matColumnDef="document">
+      <th mat-header-cell *matHeaderCellDef>DNI</th>
+  
+      <td mat-cell *matCellDef="let student">
+        {{ student.document }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="birthdate">
+      <th mat-header-cell *matHeaderCellDef>Fecha de Nacimiento</th>
+
+      <td mat-cell *matCellDef="let student">
+        {{ formatBirthDate(student.birthDate) }}
+      </td>
+    </ng-container>
   
     <!-- Actions Column -->
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Acciones</th>
   
       <td mat-cell *matCellDef="let student">
+        <button [routerLink]="student.id" color="accent" mat-icon-button>
+          <mat-icon>visibility</mat-icon>
+        </button>   
         <button  mat-icon-button color="primary" (click)="onEditStudent(student)">
           <mat-icon>edit</mat-icon>
         </button>

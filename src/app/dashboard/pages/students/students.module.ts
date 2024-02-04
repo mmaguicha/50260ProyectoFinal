@@ -5,20 +5,24 @@ import { StudentModalDialogComponent } from './components/student-modal-dialog/s
 import { StudentTableComponent } from './components/student-table/student-table.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { DeleteStudentComponent } from './components/delete-student/delete-student.component';
-
-
+import { StudentsService } from '../../../core/services/students.service';
+import { StudentDetailComponent } from './components/student-detail/student-detail.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     StudentsComponent,
     StudentModalDialogComponent,
     StudentTableComponent,
-    DeleteStudentComponent
+    DeleteStudentComponent,
+    StudentDetailComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [StudentsComponent],
+  providers: [StudentsService]
 })
 export class StudentsModule { }

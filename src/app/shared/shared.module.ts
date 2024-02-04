@@ -12,6 +12,7 @@ import { FormErrorsPipe } from './pipes/form-errors.pipe';
 import { FullNamePipe } from './pipes/full-name.pipe';
 import { TitulosDirective } from './directives/titulos.directive';
 import { CurrentYearDirective } from './directives/current-year.directive';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CurrentYearDirective } from './directives/current-year.directive';
     FullNamePipe,
     TitulosDirective,
     CurrentYearDirective,
+    MatDatepickerModule
   ],
 })
 export class SharedModule { }

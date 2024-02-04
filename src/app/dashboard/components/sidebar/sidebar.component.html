@@ -1,13 +1,28 @@
 <mat-nav-list>
-    <mat-list-item>
-      <a>Home</a>
-    </mat-list-item>     
-    <mat-list-item>
-      <a>Cursos</a>
-    </mat-list-item>
-    <mat-list-item>
-      <a>Alumnos</a>
-    </mat-list-item>
+    <a
+    #homeLink="routerLinkActive" 
+    routerLinkActive
+    [activated]="homeLink.isActive"
+    routerLink="home"
+    mat-list-item
+    >Inicio
+  </a>
+  <a
+  #studentsLink="routerLinkActive" 
+  routerLinkActive
+  [activated]="studentsLink.isActive"
+  routerLink="students"
+  mat-list-item
+  >Alumnos
+  </a>
+  <a
+  #coursesLink="routerLinkActive" 
+  routerLinkActive
+  [activated]="coursesLink.isActive"
+  routerLink="courses"
+  mat-list-item
+  >Cursos
+  </a>   
     <mat-list-item>
       <a>Inscripciones</a>
     </mat-list-item>

@@ -1,52 +1,43 @@
 <h1 mat-dialog-title appTitulos>
-    {{student ? "Editar alumno" : "Dar de alta alumno" }}
+    {{course ? "Editar curso" : "Dar de alta un curso" }}
   </h1>
   
   <div mat-dialog-content>
     <!-- Contenido... -->
   
-    <form [formGroup]="studentForm">
+    <form [formGroup]="courseForm">
       <div class="row">
         <div class="col-6">
           <mat-form-field class="w-100">
-            <mat-label>Nombre</mat-label>
-            <input formControlName="firstName" matInput />
+            <mat-label>Nombre del curso</mat-label>
+            <input formControlName="name" matInput />
             <mat-error>
-              {{ studentForm.get("firstName")?.errors | formErrors }}
+              {{ courseForm.get("name")?.errors | formErrors }}
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-6">
           <mat-form-field class="w-100">
-            <mat-label>Apellido</mat-label>
-            <input formControlName="lastName" matInput />
+            <mat-label>Descripcion</mat-label>
+            <input formControlName="description" matInput />
             <mat-error>
-              {{ studentForm.get("lastName")?.errors | formErrors }}
+              {{ courseForm.get("description")?.errors | formErrors }}
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col-12">
           <mat-form-field class="w-100">
-            <mat-label>Email</mat-label>
-            <input formControlName="email" matInput />
+            <mat-label>Duracion</mat-label>
+            <input formControlName="duration" matInput />
             <mat-error>
-              {{ studentForm.get("email")?.errors | formErrors }}
+              {{ courseForm.get("duration")?.errors | formErrors }}
             </mat-error>
           </mat-form-field>
-        </div>
+        </div>        
         <div class="col-6">
           <mat-form-field class="w-100">
-            <mat-label>DNI</mat-label>
-            <input formControlName="document" matInput />
-            <mat-error>
-              {{ studentForm.get("document")?.errors | formErrors }}
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col-6">
-          <mat-form-field class="w-100">
-            <mat-label>Fecha de nacimiento</mat-label>
-            <input formControlName="birthDate" matInput [matDatepicker]="fechaCreacionPicker"/>
+            <mat-label>Fecha de alta</mat-label>
+            <input formControlName="createdAt" matInput [matDatepicker]="fechaCreacionPicker"/>
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle
           matIconSuffix
@@ -54,7 +45,7 @@
             ></mat-datepicker-toggle>
         <mat-datepicker #fechaCreacionPicker></mat-datepicker>
             <mat-error>
-              {{ studentForm.get("birthDate")?.errors | formErrors }}
+              {{ courseForm.get("createdAt")?.errors | formErrors }}
             </mat-error>
           </mat-form-field>
         </div>

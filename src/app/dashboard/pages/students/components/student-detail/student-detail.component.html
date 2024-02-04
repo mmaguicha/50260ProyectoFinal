@@ -1,0 +1,31 @@
+
+<section class="student-detail-container">
+    <h2>Detalle del alumno</h2>
+  
+    <div *ngIf="studentDetail" class="student-detail">
+      <div class="detail-item">
+        <strong>ID:</strong>
+        <span>{{ studentDetail.id }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Nombre:</strong>
+        <span>{{ studentDetail.firstName }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Apellido:</strong>
+        <span>{{ studentDetail.lastName }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>DNI:</strong>
+        <span>{{ studentDetail.document }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Email:</strong>
+        <span>{{ studentDetail.email }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Fecha Nacimiento:</strong>
+        <span>{{ studentDetail.birthDate | date:'dd/MM/yyyy' }}</span>
+      </div>
+    </div>
+  </section>  

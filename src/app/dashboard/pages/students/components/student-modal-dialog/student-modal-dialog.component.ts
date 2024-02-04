@@ -22,6 +22,8 @@ export class StudentModalDialogComponent {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      document: ['', [Validators.required]],
+      birthDate: ['', [Validators.required]],
     });
 
     if (this.student) {

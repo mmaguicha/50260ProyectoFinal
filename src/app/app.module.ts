@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { MatNativeDateModule } from '@angular/material/core'; // si o si para el DatePicker
+import { HttpClientModule } from '@angular/common/http';
 
 import es from '@angular/common/locales/es';
 import esAR from '@angular/common/locales/es-AR';
@@ -24,6 +25,7 @@ registerLocaleData(esAR); //registra solo para argentina
     BrowserAnimationsModule,
     DashboardModule,
     MatNativeDateModule,
+    HttpClientModule
   ],
   providers: [{
     provide: LOCALE_ID,

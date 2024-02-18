@@ -20,7 +20,7 @@ export class UsersComponent {
   constructor(private matDialog: MatDialog, private usersService: UsersService, private route: ActivatedRoute) {
     console.log(this.route.snapshot.queryParams); 
     
-    this.usersService.getusers().subscribe({
+    this.usersService.getUsers().subscribe({
       next: (users) => {
         this.users = users;
       },
@@ -58,7 +58,6 @@ export class UsersComponent {
   }
  
   onDeleteUser(userId: number): void {    
-
     const dialogRef = this.matDialog.open(DeleteUserComponent);
 
     dialogRef.afterClosed().subscribe((result) => {

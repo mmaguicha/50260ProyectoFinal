@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": "14eb",
+      "firstName": "Matias",
+      "lastName": "Maguicha",
+      "email": "matias.maguicha@mail.com",
+      "password": "123",
+      "role": "ADMIN",
+      "token": " DJEk1IDQul3393j"
+    },
+    {
+      "id": "e8ec",
+      "firstName": "Marta",
+      "lastName": "Gomez",
+      "email": "marta.gomez@mail.com",
+      "password": "1234",
+      "role": "USER",
+      "token": " CVVJWYKPiHrXtfo"
+    },
+    {
+      "id": "8909",
+      "firstName": "Pablo",
+      "lastName": "Lopez",
+      "email": "pablo.lopez@mail.com",
+      "password": "123",
+      "role": "ADMIN",
+      "token": " 3MFbcYyxfpxkq2j"
+    },
+    {
+      "id": "b32a",
+      "firstName": "Francisco",
+      "lastName": "Pascal",
+      "email": "francisco.pascal@mail.com",
+      "password": "123",
+      "role": "USER",
+      "token": " 3zCvmdn7Cg1nPT1"
+    },
+    {
+      "id": "3b48",
+      "firstName": "Marcos",
+      "lastName": "Aurelio",
+      "email": "marcos.aurelio@mail.com",
+      "password": "sda",
+      "role": "USER",
+      "token": " wGHBtJdjKTDCEXW"
+    }
+  ],
+  "courses": []
+}

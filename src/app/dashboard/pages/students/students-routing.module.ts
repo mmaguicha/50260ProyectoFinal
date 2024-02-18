@@ -4,7 +4,7 @@ import { StudentsComponent } from './students.component';
 
 const routes: Routes = [
   {
-    // Actualmente estamos posiciondas en: /dashboard/students
+    // Actualmente estamos posicionados en: /dashboard/students
     path: '',
     component: StudentsComponent,
   },

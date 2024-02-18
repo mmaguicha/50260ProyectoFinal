@@ -1,0 +1,30 @@
+<section class="user-detail-container">
+    <h2>Detalle del usuario</h2>
+  
+    <div *ngIf="userDetail" class="user-detail">
+      <div class="detail-item">
+        <strong>ID:</strong>
+        <span>{{ userDetail.id }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Nombre:</strong>
+        <span>{{ userDetail.firstName }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Apellido:</strong>
+        <span>{{ userDetail.lastName }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Password:</strong>
+        <span>{{ userDetail.password }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Email:</strong>
+        <span>{{ userDetail.email }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Rol:</strong>
+        <span>{{ userDetail.role }}</span>
+      </div>
+    </div>
+  </section>  

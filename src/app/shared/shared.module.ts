@@ -13,6 +13,7 @@ import { FullNamePipe } from './pipes/full-name.pipe';
 import { TitulosDirective } from './directives/titulos.directive';
 import { CurrentYearDirective } from './directives/current-year.directive';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     FullNamePipe,
     TitulosDirective,
     CurrentYearDirective,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSelectModule
   ],
 })
 export class SharedModule { }

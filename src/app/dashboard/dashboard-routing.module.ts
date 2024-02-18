@@ -5,6 +5,8 @@ import { StudentsComponent } from './pages/students/students.component';
 import { StudentDetailComponent } from './pages/students/components/student-detail/student-detail.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { CourseDetailComponent } from './pages/courses/components/course-detail/course-detail.component';
+import { UsersComponent } from './pages/users/users.component';
+import { UserDetailComponent } from './pages/users/components/user-detail/user-detail.component';
 
 const routes: Routes = [  
       {
@@ -34,6 +36,18 @@ const routes: Routes = [
       {
         path: 'courses/:id',
         component: CourseDetailComponent,
+      },
+      {
+        path: 'users', 
+        component: UsersComponent,
+        loadChildren: () =>
+          import('./pages/users/users.module').then(
+            (m) => m.UsersModule
+          ),
+      },
+      {
+        path: 'users/:id',
+        component: UserDetailComponent,
       },
       {
         path: '**', // para cualquier path desconocido, me lleva al Home

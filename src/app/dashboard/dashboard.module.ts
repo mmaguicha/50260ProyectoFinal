@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { CoursesModule } from './pages/courses/courses.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { UsersModule } from './pages/users/users.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     MatButtonModule,
     StudentsModule,
     CoursesModule,
+    UsersModule,
     RouterModule,
     DashboardRoutingModule,   
   ],

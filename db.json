@@ -128,6 +128,14 @@
       "email": "ivi.sol@mail.com",
       "document": "321343245",
       "birthDate": "1994-03-16T03:00:00.000Z"
+    },
+    {
+      "id": "e1ca",
+      "firstName": "homero",
+      "lastName": "asd",
+      "email": "matiasdesconocido@yahoo.com",
+      "document": "324",
+      "birthDate": "2024-02-21T03:00:00.000Z"
     }
   ],
   "courses": [

@@ -14,7 +14,7 @@ export class adminGuard {
     if (this.authService.authUser?.role === 'ADMIN') {
       return true;
     } else {
-      alert('Usted no tiene permiso en esta sección. Lo llevaremos al home');
+      alert('Usted no tiene permiso en esta sección. Lo llevaremos al Home');
       return this.router.createUrlTree(['dashboard', 'home']);
     }
   }

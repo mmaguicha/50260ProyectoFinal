@@ -128,14 +128,6 @@
       "email": "ivi.sol@mail.com",
       "document": "321343245",
       "birthDate": "1994-03-16T03:00:00.000Z"
-    },
-    {
-      "id": "e1ca",
-      "firstName": "homero",
-      "lastName": "asd",
-      "email": "matiasdesconocido@yahoo.com",
-      "document": "324",
-      "birthDate": "2024-02-21T03:00:00.000Z"
     }
   ],
   "courses": [
@@ -172,14 +164,14 @@
       "name": "Express.js Crash Course",
       "description": "Curso rápido de Express.js",
       "duration": 12,
-      "createdAt": "2018-13-06T03:00:00.000Z"
+      "createdAt": "2018-12-06T03:00:00.000Z"
     },
     {
+      "id": "a21a",
       "name": "Angular Advanced",
       "description": "Curso avanzado de Angular",
       "duration": "230",
-      "createdAt": "2023-12-14T03:00:00.000Z",
-      "id": "a21a"
+      "createdAt": "2023-12-14T03:00:00.000Z"
     }
   ]
 }

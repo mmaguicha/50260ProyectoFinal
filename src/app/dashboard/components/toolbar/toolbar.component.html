@@ -10,4 +10,7 @@
       </button>
       <span> Escuela Digital Innova </span>
     </div>  
+    <div *ngIf="authenticatedUser.user">
+      <p>Hola {{ authenticatedUser.user.email }} - Rol: {{ authenticatedUser.role }}</p>      
+    </div>
   </mat-toolbar>  

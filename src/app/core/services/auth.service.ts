@@ -69,4 +69,8 @@ export class AuthService {
       );
   }
   
+   // Método para obtener el usuario autenticado con su rol
+   getAuthenticatedUserWithRole(): Observable<{ user: User | null, role: string | null }> {
+    return of({ user: this.authUser, role: this.authUser?.role || null });
+  }
 }

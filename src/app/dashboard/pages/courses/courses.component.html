@@ -49,7 +49,7 @@
       <th mat-header-cell *matHeaderCellDef>Fecha de alta</th>
 
       <td mat-cell *matCellDef="let course">
-        {{ formatDate(course.createdAt) }}
+        {{ course.createdAt | date: 'dd/MM/yyyy' }}
       </td>
     </ng-container>
   

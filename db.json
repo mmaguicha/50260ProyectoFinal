@@ -44,7 +44,134 @@
       "password": "sda",
       "role": "USER",
       "token": " wGHBtJdjKTDCEXW"
+    },
+    {
+      "id": "d4c7",
+      "firstName": "Ana",
+      "lastName": "Luz",
+      "email": "ana.luz@mail.com",
+      "password": "1234",
+      "role": "USER",
+      "token": " HFAWoqA4CHGCpME"
+    },
+    {
+      "id": "eba8",
+      "firstName": "Pia",
+      "lastName": "Lopez",
+      "email": "pia.lopez@mail.com",
+      "password": "1234",
+      "role": "ADMIN",
+      "token": " VP9lMwRnOHZZ7FY"
     }
   ],
-  "courses": []
+  "students": [
+    {
+      "firstName": "Matias",
+      "lastName": "Alvarez",
+      "email": "matias.alvarez@yahoo.com",
+      "document": "12341243",
+      "birthDate": "1997-02-11T03:00:00.000Z",
+      "id": "e79c"
+    },
+    {
+      "firstName": "Francisco",
+      "lastName": "Pascal",
+      "email": "francisco.pascal@mail.com",
+      "document": "32423423",
+      "birthDate": "1997-06-17T03:00:00.000Z",
+      "id": "d38d"
+    },
+    {
+      "id": "9642",
+      "firstName": "Juan",
+      "lastName": "Gomez",
+      "email": "juan.gomez@mail.com",
+      "document": "2342354235",
+      "birthDate": "1998-03-04T03:00:00.000Z"
+    },
+    {
+      "id": "d187",
+      "firstName": "Maria",
+      "lastName": "Rodriguez",
+      "email": "maria.rodriguez@mail.com",
+      "document": "234324324234",
+      "birthDate": "2006-11-16T03:00:00.000Z"
+    },
+    {
+      "id": "e5ab",
+      "firstName": "Lucas",
+      "lastName": "Lopez",
+      "email": "lucas.lopez@mail.com",
+      "document": "345345345",
+      "birthDate": "1998-06-09T03:00:00.000Z"
+    },
+    {
+      "id": "99bd",
+      "firstName": "Ana",
+      "lastName": "Fernandez",
+      "email": "ana.fernandez@mail.com",
+      "document": "1234423432",
+      "birthDate": "2002-11-13T03:00:00.000Z"
+    },
+    {
+      "id": "559a",
+      "firstName": "Diego",
+      "lastName": "Diaz",
+      "email": "diego.diaz@mail.com",
+      "document": "324324234",
+      "birthDate": "2002-07-04T03:00:00.000Z"
+    },
+    {
+      "id": "0dbd",
+      "firstName": "Ivana",
+      "lastName": "Sol",
+      "email": "ivi.sol@mail.com",
+      "document": "321343245",
+      "birthDate": "1994-03-16T03:00:00.000Z"
+    }
+  ],
+  "courses": [
+    {
+      "id": "a21r",
+      "name": "Angular Fundamentals",
+      "description": "Curso introductorio de Angular",
+      "duration": 20,
+      "createdAt": "2019-03-16T03:00:00.000Z"
+    },
+    {
+      "id": "a20a",
+      "name": "React Basics",
+      "description": "Introducción a React",
+      "duration": 15,
+      "createdAt": "2018-03-10T03:00:00.000Z"
+    },
+    {
+      "id": "e21a",
+      "name": "Vue.js Essentials",
+      "description": "Curso esencial de Vue.js",
+      "duration": 18,
+      "createdAt": "2021-02-16T03:00:00.000Z"
+    },
+    {
+      "id": "a11a",
+      "name": "Node.js for Beginners",
+      "description": "Introducción a Node.js",
+      "duration": 25,
+      "createdAt": "2022-03-06T03:00:00.000Z"
+    },
+    {
+      "id": "a21v",
+      "name": "Express.js Crash Course",
+      "description": "Curso rápido de Express.js",
+      "duration": 12,
+      "createdAt": "2018-13-06T03:00:00.000Z"
+    },
+    {
+      "name": "Angular Advanced",
+      "description": "Curso avanzado de Angular",
+      "duration": "230",
+      "createdAt": "2023-12-14T03:00:00.000Z",
+      "id": "a21a"
+    }
+  ]
 }

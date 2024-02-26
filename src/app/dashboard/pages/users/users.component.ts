@@ -47,6 +47,7 @@ export class UsersComponent {
     });
 
     dialogRef.afterClosed().subscribe((updateduser) => {
+      Object.assign(updateduser, {id:user.id, token: user.token});
       if (updateduser) {
         this.usersService
               .updateUserById(user.id, updateduser)

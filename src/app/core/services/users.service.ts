@@ -98,9 +98,8 @@ export class UsersService {
     // users = users.map((User) => User.id === UserId ? { ...User, ...updateUser } : User);
     // return this.getusers();
     
-    console.log(updateUser);
-    return this.httpClient.put<User>(`${environment.apiURL}/users/${UserId}`, { ...updateUser,
-      token: updateUser.token })
+    //console.log(updateUser);
+    return this.httpClient.put<User>(`${environment.apiURL}/users/${UserId}`, { ...updateUser })
       .pipe(mergeMap(() => this.getUsers()));
   }
 

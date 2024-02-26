@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, delay, finalize, map, of, tap } from 'rxjs';
+import { Observable, catchError, delay, finalize, map, of, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../dashboard/pages/users/models';
 import { environment } from '../../../environments/environment.development';
@@ -65,7 +65,8 @@ export class AuthService {
             localStorage.removeItem('token'); //elimino el local storage
             return false;
           }
-        })
+        }),
+        catchError(() => of(false))
       );
   }
   

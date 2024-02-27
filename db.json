@@ -14,7 +14,7 @@
       "firstName": "Marta",
       "lastName": "Gomez",
       "email": "marta.gomez@mail.com",
-      "password": "1234",
+      "password": "123",
       "role": "USER",
       "token": " CVVJWYKPiHrXtfo"
     },
@@ -181,14 +181,14 @@
       "courseId": "a21v"
     },
     {
-      "id": "cd66",
-      "studentId": "e79c",
-      "courseId": "a11a"
-    },
-    {
       "id": "4915",
       "studentId": "e79c",
       "courseId": "a21r"
+    },
+    {
+      "id": "ad26",
+      "studentId": "9642",
+      "courseId": "a11a"
     }
   ]
 }

@@ -5,6 +5,8 @@ import { Course } from './models';
 import { CoursesService } from '../../../core/services/courses.service';
 import { CourseModalDialogComponent } from './components/course-modal-dialog/course-modal-dialog.component';
 import { DeleteCourseComponent } from './components/delete-course/delete-course.component';
+import { AuthService } from '../../../core/services/auth.service';
+import { User } from '../users/models';
 
 
 @Component({
@@ -18,14 +20,21 @@ export class CoursesComponent {
   courses : Course[] = [];
 
   displayedColumns = ['id', 'name', 'description', 'duration', 'createdAt', 'actions'];
+
+  authenticatedUser: { user: User | null, role: string | null } = { user: null, role: null };
   
-  constructor(private matDialog: MatDialog, private coursesService: CoursesService, private route: ActivatedRoute) {
+  constructor(private matDialog: MatDialog, private coursesService: CoursesService, 
+    private route: ActivatedRoute, private authService: AuthService) {
     //console.log(this.route.snapshot.queryParams); 
     
     this.coursesService.getCourses().subscribe({
       next: (courses) => {
         this.courses = courses;
       },
+    });
+
+    this.authService.getAuthenticatedUserWithRole().subscribe(userWithRole => {
+      this.authenticatedUser = userWithRole;
     });
   }
 

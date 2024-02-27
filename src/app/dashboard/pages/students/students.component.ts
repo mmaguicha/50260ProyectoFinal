@@ -5,6 +5,8 @@ import { StudentModalDialogComponent } from './components/student-modal-dialog/s
 import { DeleteStudentComponent } from './components/delete-student/delete-student.component';
 import { StudentsService } from '../../../core/services/students.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
+import { User } from '../users/models';
 
 @Component({
   selector: 'app-students',
@@ -17,13 +19,21 @@ export class StudentsComponent {
 
   displayedColumns = ['id', 'fullname', 'email', 'document', 'birthdate', 'actions'];
   
-  constructor(private matDialog: MatDialog, private studentsService: StudentsService, private route: ActivatedRoute) {
+  authenticatedUser: { user: User | null, role: string | null } = { user: null, role: null };
+  
+  constructor(
+    private matDialog: MatDialog, private studentsService: StudentsService, 
+    private route: ActivatedRoute, private authService: AuthService) {
     //console.log(this.route.snapshot.queryParams); 
     
     this.studentsService.getStudents().subscribe({
       next: (students) => {
         this.students = students;
       },
+    });
+
+    this.authService.getAuthenticatedUserWithRole().subscribe(userWithRole => {
+      this.authenticatedUser = userWithRole;
     });
   }
 

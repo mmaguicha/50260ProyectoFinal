@@ -181,29 +181,14 @@
       "courseId": "a21v"
     },
     {
-      "id": "307a",
-      "studentId": "0dbd",
-      "courseId": "a21r"
-    },
-    {
-      "id": "6467",
-      "studentId": "e79c",
-      "courseId": "a20a"
-    },
-    {
-      "id": "f651",
-      "studentId": "0dbd",
-      "courseId": "a21a"
-    },
-    {
-      "id": "0841",
-      "studentId": "e79c",
-      "courseId": "a20a"
-    },
-    {
       "id": "cd66",
       "studentId": "e79c",
       "courseId": "a11a"
+    },
+    {
+      "id": "4915",
+      "studentId": "e79c",
+      "courseId": "a21r"
     }
   ]
 }

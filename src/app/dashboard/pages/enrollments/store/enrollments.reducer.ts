@@ -53,6 +53,14 @@ export const reducer = createReducer(
   on(EnrollmentsActions.loadCoursesSuccess, (state, action) => ({
     ...state,
     courses: action.data,
+  })),
+  on(EnrollmentsActions.deleteEnrollmentSuccess, (state, action) => ({
+    ...state,
+    enrollments: state.enrollments.filter(enrollment => enrollment.id !== action.id), // Remove the deleted enrollment from the state
+  })),
+  on(EnrollmentsActions.deleteEnrollmentFailure, (state, action) => ({
+    ...state,
+    error: action.error,
   }))
 );
 

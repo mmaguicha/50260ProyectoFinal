@@ -9,9 +9,10 @@ import { SharedModule } from '../../../shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { enrollmentsFeature } from './store/enrollments.reducer';
 import { CoursesService } from '../../../core/services/courses.service';
+import { DeleteEnrollmentComponent } from './components/delete-enrollment/delete-enrollment.component';
 
 @NgModule({
-  declarations: [EnrollmentsComponent, EnrolmentModalDialogComponent],
+  declarations: [EnrollmentsComponent, EnrolmentModalDialogComponent, DeleteEnrollmentComponent],
   imports: [
     CommonModule,
     EnrollmentsRoutingModule,

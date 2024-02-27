@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, concatMap, throwError } from 'rxjs';
+import { catchError, concatMap, mergeMap, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { Student } from '../../dashboard/pages/students/models/student';
 import { CreateEnrollData, Enrollment } from '../../dashboard/pages/enrollments/models';
@@ -27,5 +27,10 @@ export class EnrollmentsService {
 
   createEnrollment(data: CreateEnrollData) {
     return this.http.post<Enrollment>(`${environment.apiURL}/enrollments`, data);
+  }
+
+  deleteEnrollmentById(EnrollmentId: string) {
+    return this.http.delete<Student>(`${environment.apiURL}/enrollments/${EnrollmentId}`)
+      .pipe(mergeMap(() => this.getEnrollments()));
   }
 }

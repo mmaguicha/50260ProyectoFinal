@@ -6,6 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { selectEnrollments } from './store/enrollments.selectors';
 import { EnrollmentsActions } from './store/enrollments.actions';
 import { EnrolmentModalDialogComponent } from './components/enrolment-modal-dialog/enrolment-modal-dialog.component';
+import { DeleteEnrollmentComponent } from './components/delete-enrollment/delete-enrollment.component';
+import { EnrollmentsService } from '../../../core/services/enrollments.service';
 
 @Component({
   selector: 'app-enrollments',
@@ -19,6 +21,8 @@ export class EnrollmentsComponent implements OnDestroy {
   enrollmentsSubscripion?: Subscription;
 
   destroyed$ = new Subject();
+
+  displayedColumns = ['id', 'studentId', 'courseId', 'actions'];
 
   constructor(private store: Store, private matDialog: MatDialog) {
 
@@ -37,6 +41,15 @@ export class EnrollmentsComponent implements OnDestroy {
   createEnrollment(): void {
     this.matDialog.open(EnrolmentModalDialogComponent);
   }
+
+  onDeleteEnrollment(enrollmentId: string ): void {    
+    const dialogRef = this.matDialog.open(DeleteEnrollmentComponent);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.store.dispatch(EnrollmentsActions.deleteEnrollment({ id: enrollmentId }));
+     }
+    });
+  }  
 
   ngOnDestroy(): void {
     this.destroyed$.next(true);

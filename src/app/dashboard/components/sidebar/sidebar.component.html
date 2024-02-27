@@ -23,10 +23,14 @@
   mat-list-item
   >Cursos
   </a>   
-  <mat-list-item>
-      <a>Inscripciones</a>
-    </mat-list-item>
-  </mat-nav-list>  
+  <a
+  #enrollmentsLink="routerLinkActive" 
+  routerLinkActive
+  [activated]="enrollmentsLink.isActive"
+  routerLink="enrollments"
+  mat-list-item
+  >Inscripciones
+  </a>
   <a
   #usersLink="routerLinkActive" 
   routerLinkActive

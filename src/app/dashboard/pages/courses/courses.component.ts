@@ -20,7 +20,7 @@ export class CoursesComponent {
   displayedColumns = ['id', 'name', 'description', 'duration', 'createdAt', 'actions'];
   
   constructor(private matDialog: MatDialog, private coursesService: CoursesService, private route: ActivatedRoute) {
-    console.log(this.route.snapshot.queryParams); 
+    //console.log(this.route.snapshot.queryParams); 
     
     this.coursesService.getCourses().subscribe({
       next: (courses) => {

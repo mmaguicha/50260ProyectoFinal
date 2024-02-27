@@ -18,7 +18,7 @@ export class UsersComponent {
   displayedColumns = ['id', 'fullName', 'email', 'role', 'actions'];
   
   constructor(private matDialog: MatDialog, private usersService: UsersService, private route: ActivatedRoute) {
-    console.log(this.route.snapshot.queryParams); 
+    //console.log(this.route.snapshot.queryParams); 
     
     this.usersService.getUsers().subscribe({
       next: (users) => {

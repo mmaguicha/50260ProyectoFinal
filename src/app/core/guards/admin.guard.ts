@@ -10,7 +10,7 @@ export class adminGuard {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(): boolean | UrlTree {
-    console.log('AUTH ADMIN');
+    // console.log('AUTH ADMIN');
     if (this.authService.authUser?.role === 'ADMIN') {
       return true;
     } else {

@@ -8,6 +8,8 @@ import { CourseDetailComponent } from './pages/courses/components/course-detail/
 import { UsersComponent } from './pages/users/users.component';
 import { UserDetailComponent } from './pages/users/components/user-detail/user-detail.component';
 import { adminGuard } from '../core/guards/admin.guard';
+import { EnrollmentsComponent } from './pages/enrollments/enrollments.component';
+import { EnrollmentsModule } from './pages/enrollments/enrollments.module';
 
 const routes: Routes = [  
       {
@@ -40,7 +42,7 @@ const routes: Routes = [
       },
       {
         path: 'users', 
-        canActivate: [adminGuard], //solo pueden entrar usuarios ADMIN  ------
+        //canActivate: [adminGuard], //solo pueden entrar usuarios ADMIN  ------
         component: UsersComponent,
         loadChildren: () =>
           import('./pages/users/users.module').then(
@@ -50,6 +52,14 @@ const routes: Routes = [
       {
         path: 'users/:id',
         component: UserDetailComponent,
+      },
+      {
+        path: 'enrollments', 
+        component: EnrollmentsComponent,
+        loadChildren: () =>
+          import('./pages/enrollments/enrollments.module').then(
+            (m) => m.EnrollmentsModule
+          ),
       },
       {
         path: '**', // para cualquier path desconocido, me lleva al Home

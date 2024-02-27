@@ -12,6 +12,6 @@ export class DashboardComponent {
   showHome = true;
 
   constructor(private route: ActivatedRoute) {
-    console.log(this.route.snapshot.queryParams);     
+    //console.log(this.route.snapshot.queryParams);     
   }
 }

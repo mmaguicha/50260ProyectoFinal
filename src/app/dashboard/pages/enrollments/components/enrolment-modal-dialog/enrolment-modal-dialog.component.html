@@ -1,0 +1,39 @@
+<h1 mat-dialog-title appTitulos>Realizar inscripción</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="enrollmentForm">
+    <div class="row">
+      <div class="col-6">
+    <mat-form-field>
+      <mat-label>Alumno</mat-label>
+      <mat-select formControlName="studentId">
+        <mat-option [value]="student.id" *ngFor="let student of students$ | async">
+          {{ student.firstName }} {{ student.lastName }}
+        </mat-option>
+      </mat-select>
+      <mat-error>
+        {{ enrollmentForm.get("studentId")?.errors | formErrors }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <mat-form-field>
+      <mat-label>Curso</mat-label>
+      <mat-select formControlName="courseId">
+        <mat-option [value]="course.id" *ngFor="let course of courses$ | async">
+          {{ course.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error>
+        {{ enrollmentForm.get("courseId")?.errors | formErrors }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+</div>
+  </form>
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-dialog-close type="button" class="btn btn-secondary">Cancelar</button>
+  <button (click)="onSubmit()" type="button" class="btn btn-primary" style="margin-left: 8px;">Guardar</button>
+</div>

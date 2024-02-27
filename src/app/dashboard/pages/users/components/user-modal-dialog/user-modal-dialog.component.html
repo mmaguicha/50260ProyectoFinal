@@ -1,6 +1,6 @@
 <h1 mat-dialog-title appTitulos>
     {{user ? "Editar usuario" : "Dar de alta usuario" }}
-  </h1>
+</h1>
   
   <div mat-dialog-content>
     <!-- Contenido... -->
@@ -50,6 +50,9 @@
                 <mat-option value="ADMIN">ADMIN</mat-option>
                 <mat-option value="USER">USER</mat-option>
               </mat-select>
+              <mat-error>
+                {{ userForm.get("role")?.errors | formErrors }}
+              </mat-error>
             </mat-form-field>
           </div>
       </div>

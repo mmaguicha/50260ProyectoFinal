@@ -42,7 +42,7 @@
         <ul *ngIf="mostrarCursos && enrollmentDetail && enrollmentDetail.length > 0">
           <li *ngFor="let enrollment of enrollmentDetail" class="enrollment-item">
             ♦ {{ enrollment.course.name }}
-            <button mat-icon-button color="warn">
+            <button mat-icon-button color="warn" (click)="onDeleteEnrollment(enrollment.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </li>

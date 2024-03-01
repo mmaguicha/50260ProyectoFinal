@@ -6,6 +6,10 @@ import { EnrollmentsService } from '../../../../../core/services/enrollments.ser
 import { Enrollment } from '../../../enrollments/models';
 import { CoursesService } from '../../../../../core/services/courses.service';
 import { Course } from '../../../courses/models';
+import { EnrollmentsActions } from '../../../enrollments/store/enrollments.actions';
+import { DeleteStudentEnrollmentComponent } from '../delete-student-enrollment/delete-student-enrollment.component';
+import { Store } from '@ngrx/store';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-student-detail',
@@ -21,7 +25,8 @@ export class StudentDetailComponent {
 
 constructor(
   private route: ActivatedRoute, private studentService: StudentsService, 
-  private enrollmentService: EnrollmentsService, private courseService: CoursesService
+  private enrollmentService: EnrollmentsService, private store: Store, 
+  private matDialog: MatDialog
 ){  
   this.studentService.getStudentById(this.route.snapshot.params['id']).subscribe({
     next: (findedStudent) => {       
@@ -40,10 +45,20 @@ private loadStudentEnrollments(studentId: string): void {
     next: (findedEnrollment) => {
       this.enrollmentDetail = findedEnrollment;
     },
-    error: (error) => {
+    error: () => {
       alert('Error al cargar inscripciones.');
     }
   });
 }
+
+onDeleteEnrollment(enrollmentId: string ): void {    
+  const dialogRef = this.matDialog.open(DeleteStudentEnrollmentComponent);
+  dialogRef.afterClosed().subscribe((result) => {
+    if (result) {
+      this.store.dispatch(EnrollmentsActions.deleteEnrollment({ id: enrollmentId }));
+      this.loadStudentEnrollments(this.route.snapshot.params['id']);
+   }
+  });
+}  
 
 }

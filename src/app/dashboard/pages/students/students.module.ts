@@ -8,6 +8,7 @@ import { DeleteStudentComponent } from './components/delete-student/delete-stude
 import { StudentsService } from '../../../core/services/students.service';
 import { StudentDetailComponent } from './components/student-detail/student-detail.component';
 import { RouterModule } from '@angular/router';
+import { DeleteStudentEnrollmentComponent } from './components/delete-student-enrollment/delete-student-enrollment.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
     StudentModalDialogComponent,
     StudentTableComponent,
     DeleteStudentComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    DeleteStudentEnrollmentComponent
   ],
   imports: [
     CommonModule,

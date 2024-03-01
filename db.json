@@ -174,21 +174,5 @@
       "createdAt": "2023-12-14T03:00:00.000Z"
     }
   ],
-  "enrollments": [
-    {
-      "id": "307f",
-      "studentId": "e79c",
-      "courseId": "a21v"
-    },
-    {
-      "id": "4915",
-      "studentId": "e79c",
-      "courseId": "a21r"
-    },
-    {
-      "id": "ad26",
-      "studentId": "9642",
-      "courseId": "a11a"
-    }
-  ]
+  "enrollments": []
 }

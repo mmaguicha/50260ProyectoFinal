@@ -14,6 +14,7 @@ import { TitulosDirective } from './directives/titulos.directive';
 import { CurrentYearDirective } from './directives/current-year.directive';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatSelectModule } from '@angular/material/select';
     TitulosDirective,
     CurrentYearDirective,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule,
   ],
 })
 export class SharedModule { }

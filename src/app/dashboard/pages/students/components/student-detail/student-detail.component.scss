@@ -22,3 +22,18 @@
       }
     }
   }  
+
+  .enrollment-item {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Align items vertically */
+  }
+  
+  .enrollment-item span {
+    flex-grow: 1; /* Allow the span to grow and take up remaining space */
+  }
+  
+  .enrollment-item mat-icon {
+    margin-left: 10px; /* Adjust as needed */
+  }
+  
+  

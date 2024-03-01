@@ -27,5 +27,32 @@
         <strong>Fecha Nacimiento:</strong>
         <span>{{ studentDetail.birthDate | date:'dd/MM/yyyy' }}</span>
       </div>
+      
+      <div class="detail-item row d-flex align-items-center">
+        <div class="col-6">
+        <strong>Cursos Inscritos:</strong>
+      </div>
+      <div class="col-5"></div>
+      <div class="col-1">
+        <button mat-icon-button color="primary" (click)="toggleCourses()" matTooltip="Ver las inscripciones">
+          <mat-icon>{{ mostrarCursos ? 'keyboard_arrow_down' : 'keyboard_arrow_right' }}</mat-icon>
+        </button>
+      </div>
+      <div class="col-12">
+        <ul *ngIf="mostrarCursos && enrollmentDetail && enrollmentDetail.length > 0">
+          <li *ngFor="let enrollment of enrollmentDetail" class="enrollment-item">
+            ♦ {{ enrollment.course.name }}
+            <button mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </li>
+        </ul>
+        <span *ngIf="mostrarCursos && (!enrollmentDetail || enrollmentDetail.length === 0)" style="color:red">
+          El alumno no posee inscripciones.
+        </span>
+      </div>
+      
+      </div>
+      
     </div>
   </section>  

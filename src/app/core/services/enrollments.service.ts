@@ -10,19 +10,24 @@ export class EnrollmentsService {
   constructor(private http: HttpClient) {}
 
   getEnrollments() {
-    return this.http.get<Enrollment[]>(`${environment.apiURL}/enrollments?_embed=user&_embed=product`);
+    return this.http.get<Enrollment[]>(`${environment.apiURL}/enrollments?_embed=student&_embed=course`);
   }
 
+  // getEnrollmentsById(studentId: string | number) {
+  //   return this.http.get<Student>(`${environment.apiURL}/students/${studentId}`).pipe(
+  //     concatMap((student) =>
+  //       this.http.get(`${environment.apiURL}/enrollments?_embed=student&_embed=course&studentId=${student.id}`)
+  //     ),
+  //     catchError((error) => {
+  //       alert('No se puede obtener la inscripción del estudiante');
+  //       return throwError(() => error);
+  //     })
+  //   );
+  // }
+
   getEnrollmentsById(studentId: string | number) {
-    return this.http.get<Student>(`${environment.apiURL}/students/${studentId}`).pipe(
-      concatMap((student) =>
-        this.http.get(`${environment.apiURL}/enrollments?studentId=${student.id}`)
-      ),
-      catchError((error) => {
-        alert('No se puede obtener la inscripción del estudiante');
-        return throwError(() => error);
-      })
-    );
+    return this.http.get<Enrollment>(`${environment.apiURL}/enrollments?_embed=student&_embed=course&studentId=${studentId}`)
+      
   }
 
   createEnrollment(data: CreateEnrollData) {

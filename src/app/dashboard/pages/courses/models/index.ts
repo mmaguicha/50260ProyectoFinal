@@ -4,6 +4,8 @@ export interface Course {
     name: string;
     description: string;
     duration: number;
+    totalClasses:string,
+    nameTeacher: string,
     createdAt: Date;
   }
   

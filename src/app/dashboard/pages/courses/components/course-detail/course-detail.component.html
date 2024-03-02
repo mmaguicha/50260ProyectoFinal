@@ -12,15 +12,23 @@
         <span>{{ courseDetail.name }}</span>
       </div>
       <div class="detail-item">
-        <strong>Descripcion</strong>
+        <strong>Descripción</strong>
         <span>{{ courseDetail.description }}</span>
       </div>
       <div class="detail-item">
-        <strong>Duracion en horas:</strong>
+        <strong>Duración en horas:</strong>
         <span>{{ courseDetail.duration }}</span>
-      </div>      
+      </div>  
       <div class="detail-item">
-        <strong>Fecha de creacion:</strong>
+        <strong>Cantidad de clases:</strong>
+        <span>{{ courseDetail.totalClasses }}</span>
+      </div>   
+      <div class="detail-item">
+        <strong>Docente asignado:</strong>
+        <span>{{ courseDetail.nameTeacher }}</span>
+      </div>     
+      <div class="detail-item">
+        <strong>Fecha de creación del curso:</strong>
         <span>{{ courseDetail.createdAt | date:'dd/MM/yyyy' }}</span>
       </div>
 
@@ -46,8 +54,7 @@
         <span *ngIf="mostrarAlumnos && (!enrollmentDetail || enrollmentDetail.length === 0)" style="color:red">
           El curso no tiene alumnos inscriptos.
         </span>
-      </div>
-      
+      </div>      
       </div>
 
     </div>

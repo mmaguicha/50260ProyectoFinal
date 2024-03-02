@@ -42,7 +42,10 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>Eliminar inscripción</th>
 
-    <td mat-cell *matCellDef="let enrollment">      
+    <td mat-cell *matCellDef="let enrollment"> 
+      <button [routerLink]="enrollment.id" color="accent" mat-icon-button>
+        <mat-icon>visibility</mat-icon>
+      </button>      
       <button  mat-icon-button color="warn" (click)="onDeleteEnrollment(enrollment.id)">
         <mat-icon>delete</mat-icon>
       </button>

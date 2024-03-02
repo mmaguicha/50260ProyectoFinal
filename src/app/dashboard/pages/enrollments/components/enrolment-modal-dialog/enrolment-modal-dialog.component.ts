@@ -7,6 +7,8 @@ import { Store } from '@ngrx/store';
 import { MatDialogRef } from '@angular/material/dialog';
 import { EnrollmentsActions } from '../../store/enrollments.actions';
 import { selectEnrollmentsStudents, selectEnrollmentsCourses } from '../../store/enrollments.selectors';
+import { AuthService } from '../../../../../core/services/auth.service';
+import { User } from '../../../users/models';
 
 @Component({
   selector: 'app-enrolment-modal-dialog',
@@ -18,15 +20,22 @@ export class EnrolmentModalDialogComponent {
   courses$: Observable<Course[]>;
 
   enrollmentForm: FormGroup;
-
+  authenticatedUser: { user: User | null, role: string | null } = { user: null, role: null };
+  
   constructor(
-    private store: Store,
-    private formBuilder: FormBuilder,
+    private store: Store, private formBuilder: FormBuilder, private authService: AuthService,
     private matDialogRef: MatDialogRef<EnrolmentModalDialogComponent>
   ) {
+
+    this.authService.getAuthenticatedUserWithRole().subscribe(userWithRole => {
+      this.authenticatedUser = userWithRole;
+    });
+
     this.enrollmentForm = this.formBuilder.group({
       studentId: ['', Validators.required],
       courseId: ['', Validators.required],
+      createdAt: ['', Validators.required],
+      createdByUser: [this.authenticatedUser.user?.id],
     });
 
     this.store.dispatch(EnrollmentsActions.loadStudents());

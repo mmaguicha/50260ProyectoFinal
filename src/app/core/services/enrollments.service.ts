@@ -25,6 +25,10 @@ export class EnrollmentsService {
   //   );
   // }
 
+  getEnrollmentById(Id: string | number) {
+    return this.http.get<Enrollment>(`${environment.apiURL}/enrollments/${Id}`)      
+  }
+
   getEnrollmentsByStudentId(studentId: string | number) {
     return this.http.get<Enrollment>(`${environment.apiURL}/enrollments?_embed=student&_embed=course&studentId=${studentId}`)      
   }

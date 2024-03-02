@@ -29,6 +29,26 @@
       </mat-error>
     </mat-form-field>
   </div>
+  <div class="col-6">
+    <mat-form-field class="w-100">
+      <mat-label>Fecha de inscripción</mat-label>
+      <input formControlName="createdAt" matInput [matDatepicker]="fechaCreacionPicker"/>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+    matIconSuffix
+    [for]="fechaCreacionPicker"
+      ></mat-datepicker-toggle>
+  <mat-datepicker #fechaCreacionPicker></mat-datepicker>
+      <mat-error>
+        {{ enrollmentForm.get("createdAt")?.errors | formErrors }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <mat-form-field class="w-100" style="display: none;">
+      <input formControlName="createdByUser" matInput />      
+    </mat-form-field>
+  </div> 
 </div>
   </form>
 </div>

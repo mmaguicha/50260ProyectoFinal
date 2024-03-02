@@ -22,6 +22,8 @@ export class UserModalDialogComponent {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      address: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
       password: this.fb.control('', Validators.required),
       role: this.fb.control('', Validators.required),
     });

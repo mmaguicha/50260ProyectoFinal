@@ -1,0 +1,27 @@
+
+<section class="enrollment-detail-container">
+    <h2>Detalle de la inscripción</h2>
+  
+    <div *ngIf="enrollmentDetail" class="enrollment-detail">
+      <div class="detail-item">
+        <strong>ID:</strong>
+        <span>{{ enrollmentDetail.id }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Alumno:</strong>
+        <span>{{ enrollmentDetail.studentId}}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Curso:</strong>
+        <span>{{ enrollmentDetail.courseId }}</span>
+      </div>                
+      <div class="detail-item">
+        <strong>Fecha de inscripción:</strong>
+        <span>{{ enrollmentDetail.createdAt | date:'dd/MM/yyyy' }}</span>
+      </div>
+      <div class="detail-item">
+        <strong>Creador por Usuario:</strong>
+        <span>{{ enrollmentDetail.createdByUser }}</span>
+      </div>  
+    </div>
+  </section>  

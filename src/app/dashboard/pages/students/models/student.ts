@@ -4,5 +4,6 @@ export interface Student {
     lastName: string;
     email: string;
     document: number;
+    phone: number,
     birthDate: Date;
   }

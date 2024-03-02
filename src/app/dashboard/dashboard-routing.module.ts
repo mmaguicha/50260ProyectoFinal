@@ -10,6 +10,7 @@ import { UserDetailComponent } from './pages/users/components/user-detail/user-d
 import { adminGuard } from '../core/guards/admin.guard';
 import { EnrollmentsComponent } from './pages/enrollments/enrollments.component';
 import { EnrollmentsModule } from './pages/enrollments/enrollments.module';
+import { EnrolmentDetailComponent } from './pages/enrollments/components/enrolment-detail/enrolment-detail.component';
 
 const routes: Routes = [  
       {
@@ -60,6 +61,10 @@ const routes: Routes = [
           import('./pages/enrollments/enrollments.module').then(
             (m) => m.EnrollmentsModule
           ),
+      },
+      {
+        path: 'enrollments/:id',
+        component: EnrolmentDetailComponent,
       },
       {
         path: '**', // para cualquier path desconocido, me lleva al Home

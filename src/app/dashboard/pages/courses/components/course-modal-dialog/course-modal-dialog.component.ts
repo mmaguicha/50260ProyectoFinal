@@ -23,6 +23,8 @@ export class CourseModalDialogComponent {
       description: ['', Validators.required],
       duration: ['', [Validators.required]],
       createdAt: ['', [Validators.required]],
+      totalClasses: ['', [Validators.required]],
+      nameTeacher: ['', [Validators.required]],
     });
 
     if (this.course) {

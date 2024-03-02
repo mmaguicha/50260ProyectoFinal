@@ -5,6 +5,8 @@ export interface Enrollment {
   id: string | number;
   studentId: string | number;
   courseId: string | number;
+  createdByUser: string,
+  createdAt: Date;
   student?: Student;
   course?: Course;
 }

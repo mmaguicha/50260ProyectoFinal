@@ -23,6 +23,7 @@ export class StudentModalDialogComponent {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       document: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
       birthDate: ['', [Validators.required]],
     });
 

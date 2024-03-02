@@ -19,8 +19,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class StudentDetailComponent {
 
   studentDetail: Student | undefined;
-  enrollmentDetail: Enrollment | any;
-  courseDetail: Course | undefined;
+  enrollmentDetail: Enrollment | any;  
   mostrarCursos = false;
 
 constructor(
@@ -41,7 +40,7 @@ toggleCourses(): void {
 }
 
 private loadStudentEnrollments(studentId: string): void {
-  this.enrollmentService.getEnrollmentsById(studentId).subscribe({
+  this.enrollmentService.getEnrollmentsByStudentId(studentId).subscribe({
     next: (findedEnrollment) => {
       this.enrollmentDetail = findedEnrollment;
     },

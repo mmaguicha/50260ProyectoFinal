@@ -22,3 +22,16 @@
       }
     }
   }  
+
+  .enrollment-item {
+    display: flex; 
+    align-items: center; 
+  }
+  
+  .enrollment-item span {
+    flex-grow: 1; 
+  }
+  
+  .enrollment-item mat-icon {
+    margin-left: 10px; 
+  }

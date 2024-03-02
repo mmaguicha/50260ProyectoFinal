@@ -25,9 +25,12 @@ export class EnrollmentsService {
   //   );
   // }
 
-  getEnrollmentsById(studentId: string | number) {
-    return this.http.get<Enrollment>(`${environment.apiURL}/enrollments?_embed=student&_embed=course&studentId=${studentId}`)
-      
+  getEnrollmentsByStudentId(studentId: string | number) {
+    return this.http.get<Enrollment>(`${environment.apiURL}/enrollments?_embed=student&_embed=course&studentId=${studentId}`)      
+  }
+
+  getEnrollmentsByCourseId(courseId: string | number) {
+    return this.http.get<Enrollment>(`${environment.apiURL}/enrollments?_embed=student&_embed=course&courseId=${courseId}`)      
   }
 
   createEnrollment(data: CreateEnrollData) {

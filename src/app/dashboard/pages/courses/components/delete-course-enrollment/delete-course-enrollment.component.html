@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Confirmar eliminación</h2>
+    <mat-dialog-content>
+      <p>¿Está seguro de que desea eliminar la inscripción del alumno?</p>
+    </mat-dialog-content>
+    <mat-dialog-actions class="dialog-actions">
+      <button (click)="cancelar()" type="button" class="btn btn-secondary">Cancelar</button>
+      <button [mat-dialog-close]="true" type="button" class="btn btn-primary" cdkFocusInitial style="margin-left: 8px;">Aceptar</button>
+    </mat-dialog-actions>

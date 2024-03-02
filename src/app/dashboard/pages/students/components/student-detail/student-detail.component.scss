@@ -24,16 +24,14 @@
   }  
 
   .enrollment-item {
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Align items vertically */
+    display: flex; 
+    align-items: center; 
   }
   
   .enrollment-item span {
-    flex-grow: 1; /* Allow the span to grow and take up remaining space */
+    flex-grow: 1; 
   }
   
   .enrollment-item mat-icon {
-    margin-left: 10px; /* Adjust as needed */
-  }
-  
-  
+    margin-left: 10px; 
+  }  

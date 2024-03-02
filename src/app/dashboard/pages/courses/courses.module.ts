@@ -7,13 +7,15 @@ import { CourseDetailComponent } from './components/course-detail/course-detail.
 import { SharedModule } from '../../../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { CoursesService } from '../../../core/services/courses.service';
+import { DeleteCourseEnrollmentComponent } from './components/delete-course-enrollment/delete-course-enrollment.component';
 
 @NgModule({
   declarations: [
     CoursesComponent,
     CourseModalDialogComponent,
     DeleteCourseComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    DeleteCourseEnrollmentComponent
   ],
   imports: [
     CommonModule,

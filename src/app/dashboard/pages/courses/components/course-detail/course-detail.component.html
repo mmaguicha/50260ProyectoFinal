@@ -23,5 +23,32 @@
         <strong>Fecha de creacion:</strong>
         <span>{{ courseDetail.createdAt | date:'dd/MM/yyyy' }}</span>
       </div>
+
+      <div class="detail-item row d-flex align-items-center">
+        <div class="col-6">
+        <strong>Alumnos Inscritos:</strong>
+      </div>
+      <div class="col-5"></div>
+      <div class="col-1">
+        <button mat-icon-button color="primary" (click)="toggleStudents()" matTooltip="Ver las inscripciones">
+          <mat-icon>{{ mostrarAlumnos ? 'keyboard_arrow_down' : 'keyboard_arrow_right' }}</mat-icon>
+        </button>
+      </div>
+      <div class="col-12">
+        <ul *ngIf="mostrarAlumnos && enrollmentDetail && enrollmentDetail.length > 0">
+          <li *ngFor="let enrollment of enrollmentDetail" class="enrollment-item">
+            ♦ {{ enrollment.student.firstName }} {{ enrollment.student.lastName }}
+            <button mat-icon-button color="warn" (click)="onDeleteEnrollment(enrollment.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </li>
+        </ul>
+        <span *ngIf="mostrarAlumnos && (!enrollmentDetail || enrollmentDetail.length === 0)" style="color:red">
+          El curso no tiene alumnos inscriptos.
+        </span>
+      </div>
+      
+      </div>
+
     </div>
   </section>  
